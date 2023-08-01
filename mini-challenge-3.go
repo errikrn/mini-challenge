@@ -19,13 +19,12 @@ var wg sync.WaitGroup
 
 func main() {
 
-	wg.Add(8)
 	for i := 1; i < 5; i++ {
-		go interface1(i)
-	}
+		wg.Add(2)
 
-	for i := 1; i < 5; i++ {
+		go interface1(i)
 		go interface2(i)
+
 	}
 	wg.Wait()
 }
